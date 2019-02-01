@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,55 +13,77 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-<style>
+    <style>
+        body {
+            background-image: url("./assets/images/watercolorbackground.jpg");
+        }
 
-body {
-    background-image: url("./assets/images/watercolorbackground.jpg");
-}
+        h1 {
+            font-family: 'Dosis', sans-serif;
+        }
 
-h1 {
-    font-family: 'Dosis', sans-serif;
-}
-h2 {
-    font-family: 'Cabin', sans-serif;
-}
-li {
-    font-family: 'Cabin', sans-serif;
-}
+        h2 {
+            font-family: 'Cabin', sans-serif;
+            margin-bottom: 20px;
+        }
 
-</style>
+        h6 {
+            font-family: 'Major+Mono+Display', sans-serif;
+        }
+
+        li {
+            font-family: 'Cabin', sans-serif;
+            text-align: center;
+            font-size: 25px;
+            margin-top: 5px;
+        }
+    </style>
 
 </head>
 
 <body>
-<br>
-<div class="container">
-    <div class="page-header">
-        <h1 class=text-center>Trivia Game!</h1>
-      </div>
-<br>
+    <br>
+    <div class="container">
+        <div class="page-header">
+            <h1 class=text-center>Trivia Game!</h1>
+        </div>
+        <br>
 
 
-<div id="timer" class=text-center>
-    <h2>Time Remaining: </h2>
-</div>
+        <div id="timer" class=text-center>
+            <h2>Time Remaining: </h2>
+        </div>
+
+        <br> 
+
+        <div class=text-center>
+            <h6 id="correct"> </h6>
+            <h6 id="incorrect"> </h6>
+            <h6 id="remaining"></h6>
+        </div>
 
 
-<br>
-<div id="Questions" class=text-center>
-    <h2></h2>
+        <br>
+        <div id="Questions" class=text-center>
+            <h2></h2>
 
-</div>
+        </div>
 
-<ul id= "choices">
+        <ul id="choices">
 
-    </ul>
-<br>
+        </ul>
 
-</div>
-      
-<script src="./assets/javascript/app.js">
-</script> 
+        <div id="answer" class=text-center>
+            <h4></h4>
+        </div>
+        
+        <br>
+
+    </div>
+
+    <script src="./assets/javascript/app.js">
+    </script>
 
 </body>
+
 </html>

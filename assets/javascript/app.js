@@ -19,43 +19,78 @@ var questions = [{
 
 var i = 0;
 
-var wins=0;
+var wins = 0;
 
-var questionsRemaining=questions.length;
+var losses = 0;
+
+var questionsRemaining = 4;
 
 var showQuestion;
 
-var count = 30;
+var count = 10;
 
 var intervalId;
 
 
+
+
+
 function displayQuestion(i) {
+
+  $("#choices").empty();
+
   $("#Questions").html("<h2>" + questions[i].question + "</h2>");
   $("#choices").append("<li>" + questions[i].choices[0] + "</li>");
   $("#choices").append("<li>" + questions[i].choices[1] + "</li>");
   $("#choices").append("<li>" + questions[i].choices[2] + "</li>");
   $("#choices").append("<li>" + questions[i].choices[3] + "</li>");
+
+
 };
+
+$(document).ready(function () {
+
+  $("#choices").on("click", function () {
+
+    stop();
+    reset();
+
+   /* if (choices === answer) {
+
+      wins++;
+    };
+
+    else {
+      losses++;
+      $("answer").append("<h4> The correct answer: " + answer + "</h4>");
+
+    }; */
+  });
+
+
+});
 
 function nextQuestion() {
- 
-  questions++;
 
-  setTimeout(displayQuestion, 1000);
+  i++;
+  setTimeout(displayQuestion(i), 1000);
+  run();
 
 };
+
+
 
 
 function decrement() {
-    
+
   count--;
 
-  $("#timer").html("<h2> Time Remaining:" + " " + count + "</h2>");
+  $("#timer").html("<h2> Time Remaining: " + count + "</h2>");
 
   if (count === 0) {
     stop();
     alert("Time Up!");
+    reset();
   }
 };
 
@@ -69,8 +104,22 @@ function stop() {
   nextQuestion();
 };
 
+function reset() {
+  count = 10;
+
+}
+
+function scoreKeeper() {
+
+  $("#correct").append("<h6> Correct Answers: " + wins + "</h6>");
+  $("#incorrect").append("<h6> Incorrect Answers: " + losses + "</h6>");
+  $("#remaining").append("<h6> Questions Remaining: " + questionsRemaining + "</h6>");
+
+};
+
 displayQuestion(0);
 run();
+scoreKeeper();
 
 /*function question(i) {
   $('#Questions').fadeOut("slow");
@@ -89,13 +138,13 @@ run();
 /*function displayQuestion() {
         $("#Questions").html(questions[question]);
       }
-      
+
 function nextQuestion() {
-       
+
         question++;
-      
+
         setTimeout(displayQuestion, 1000);
-      
+
         if (question === questions.length) {
           question = 0;
         }
@@ -110,20 +159,20 @@ function correctAnswer() {
     stopSlideshow;
   }
 }
-      
+
 function startSlideshow() {
-      
+
         showQuestion = setInterval(nextQuestion, 3000);
-      
+
       }
 function stopSlideshow() {
-      
+
         clearInterval(showQuestion);
-      
+
       }
       displayQuestion();
 
-    
+
     */
 
 
